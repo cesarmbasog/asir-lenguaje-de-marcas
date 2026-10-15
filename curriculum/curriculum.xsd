@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://cemmm.com/curriculum"
+    xmlns:cemmm="https://cemmm.com/curriculum"
+    elementFormDefault="qualified">
+
+    <xs:element name="curriculum">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="datos_personales">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nombre" type="xs:string"/>
+                            <xs:element name="apellidos" type="xs:string"/>
+
+                            <xs:element name="emails">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="trabajo" type="xs:string"/>
+                                        <xs:element name="personal" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="experiencia">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="empresa" type="xs:string"/>
+                            <xs:element name="cargo" type="xs:string"/>
+                            <xs:element name="inicio" type="xs:string"/>
+                            <xs:element name="final" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="formacion">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="centro" type="xs:string"/>
+                            <xs:element name="titulación" type="xs:string"/>
+                            <xs:element name="inicio" type="xs:string"/>
+                            <xs:element name="final" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="habilidadesTecnicas">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="habilidad"
+                                        type="xs:string"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="idiomas">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded">
+                            <xs:element name="idioma" type="xs:string"/>
+                            <xs:element name="nivel" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
