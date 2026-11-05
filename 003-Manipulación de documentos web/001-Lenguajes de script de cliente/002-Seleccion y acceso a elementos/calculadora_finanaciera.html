@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financiera</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9eef5;
+            margin: 0;
+            padding: 30px;
+        }
+
+        main {
+            background-color: white;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        p {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        output {
+            display: block;
+            text-align: center;
+            color: #2563eb;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h1>Calculadora Financiera</h1>
+
+        <p>Capital inicial (€)</p>
+        <input type="number" id="capital">
+
+        <p>Tasa de interés (%)</p>
+        <input type="number" id="interes">
+
+        <p>Tiempo (años)</p>
+        <input type="number" id="tiempo">
+
+        <p>Tipo de interés</p>
+        <select id="tipoInteres">
+            <option value="simple">Simple</option>
+            <option value="compuesto">Compuesto</option>
+        </select>
+
+        <br><br>
+
+        <button>Calcular</button>
+
+        <h3>Resultado</h3>
+        <output></output>
+    </main>
+
+    <script>
+        let capital = document.querySelector("#capital");
+        let interes = document.querySelector("#interes");
+        let tiempo = document.querySelector("#tiempo");
+        let tipo = document.querySelector("#tipoInteres");
+
+        let boton = document.querySelector("button");
+        let salida = document.querySelector("output");
+
+        boton.onclick = function () {
+
+            let C = Number(capital.value);
+            let r = Number(interes.value) / 100;
+            let t = Number(tiempo.value);
+
+            let monto = 0;
+
+            if (tipo.value == "simple") {
+                monto = C + (C * r * t);
+            } else {
+                monto = C * (1 + r) ** t;
+            }
+
+            salida.textContent = "Monto final: " + monto + " €";
+        };
+    </script>
+
+</body>
+</html>
