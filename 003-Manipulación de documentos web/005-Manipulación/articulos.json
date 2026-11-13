@@ -1,0 +1,102 @@
+[
+    {
+      "titulo": "Mi camino en ASIR",
+      "fecha": "2026-11-13",
+      "contenido": "Actualmente estoy estudiando Administración de Sistemas Informáticos en Red (ASIR). Es una formación que me permite conocer mejor el mundo de la informática, los sistemas y las redes."
+    },
+    {
+      "titulo": "Mis primeros pasos en HTML",
+      "fecha": "2026-11-13",
+      "contenido": "HTML fue uno de los primeros lenguajes que aprendí. Con él descubrí cómo crear páginas web, organizar textos, añadir imágenes y estructurar el contenido de una página."
+    },
+    {
+      "titulo": "Aprendiendo CSS",
+      "fecha": "2026-11-13",
+      "contenido": "CSS me permite dar estilo a mis páginas web. Estoy aprendiendo a utilizar colores, márgenes, tamaños, fondos y otros elementos para conseguir diseños más atractivos."
+    },
+    {
+      "titulo": "Mi experiencia con JavaScript",
+      "fecha": "2026-11-13",
+      "contenido": "JavaScript me ha permitido dar mis primeros pasos en la programación. He trabajado con variables, operaciones matemáticas, condiciones y funciones."
+    },
+    {
+      "titulo": "¿Qué es GitHub y para qué lo utilizo?",
+      "fecha": "2026-11-13",
+      "contenido": "GitHub es una plataforma que utilizo para guardar y organizar mis proyectos. También me permite mostrar mis ejercicios y compartir mi progreso como estudiante de informática."
+    },
+    {
+      "titulo": "Mis primeros proyectos web",
+      "fecha": "2026-11-13",
+      "contenido": "Crear mis primeras páginas web ha sido una experiencia importante. Cada ejercicio me ayuda a comprender mejor HTML, CSS y JavaScript."
+    },
+    {
+      "titulo": "Aprendiendo a trabajar con bases de datos",
+      "fecha": "2026-11-13",
+      "contenido": "Las bases de datos permiten almacenar y organizar información. Durante mis estudios estoy aprendiendo a trabajar con SQL y a realizar consultas para gestionar datos."
+    },
+    {
+      "titulo": "¿Qué es un sistema operativo?",
+      "fecha": "2026-11-13",
+      "contenido": "Un sistema operativo es el software que permite gestionar los recursos de un ordenador. Algunos ejemplos son Windows, Linux y macOS."
+    },
+    {
+      "titulo": "Mi experiencia con Windows 11",
+      "fecha": "2026-11-13",
+      "contenido": "Durante mis prácticas estoy aprendiendo a configurar Windows 11, gestionar usuarios, modificar políticas y conocer las herramientas de administración."
+    },
+    {
+      "titulo": "Conociendo Linux",
+      "fecha": "2026-11-13",
+      "contenido": "Linux es un sistema operativo muy utilizado en servidores. Me interesa aprender a utilizar sus comandos y conocer mejor su funcionamiento."
+    },
+    {
+      "titulo": "¿Qué es una dirección IP?",
+      "fecha": "2026-11-13",
+      "contenido": "Una dirección IP identifica un dispositivo dentro de una red. Es un concepto fundamental para entender cómo se comunican los ordenadores."
+    },
+    {
+      "titulo": "Mis primeras prácticas con Packet Tracer",
+      "fecha": "2026-11-13",
+      "contenido": "Cisco Packet Tracer es una herramienta que utilizo para simular redes informáticas. Me permite conectar dispositivos, configurar direcciones IP y comprobar la comunicación mediante ping."
+    },
+    {
+      "titulo": "¿Qué es Active Directory?",
+      "fecha": "2026-11-13",
+      "contenido": "Active Directory es un servicio de Microsoft que permite administrar usuarios, equipos y recursos dentro de una red. Es una herramienta importante en entornos empresariales."
+    },
+    {
+      "titulo": "La importancia de las copias de seguridad",
+      "fecha": "2026-11-13",
+      "contenido": "Las copias de seguridad permiten recuperar información cuando se pierde o se produce un fallo. Por eso, considero importante aprender a realizarlas correctamente."
+    },
+    {
+      "titulo": "¿Qué es la ciberseguridad?",
+      "fecha": "2026-11-13",
+      "contenido": "La ciberseguridad consiste en proteger sistemas, redes y datos frente a amenazas digitales. Es uno de los campos de la informática que más me interesa conocer."
+    },
+    {
+      "titulo": "Conociendo los servidores",
+      "fecha": "2026-11-13",
+      "contenido": "Los servidores son equipos que proporcionan servicios y recursos a otros dispositivos. Pueden utilizarse para almacenar archivos, alojar páginas web o gestionar usuarios."
+    },
+    {
+      "titulo": "La importancia de aprender programación",
+      "fecha": "2026-11-13",
+      "contenido": "Aprender programación ayuda a desarrollar la lógica y encontrar soluciones a diferentes problemas. Aunque al principio puede resultar complicado, la práctica permite mejorar poco a poco."
+    },
+    {
+      "titulo": "Mi interés por las redes informáticas",
+      "fecha": "2026-11-13",
+      "contenido": "Las redes informáticas permiten conectar dispositivos y compartir información. Es una de las áreas de ASIR que quiero seguir aprendiendo y practicando."
+    },
+    {
+      "titulo": "Mis objetivos como futuro técnico informático",
+      "fecha": "2026-11-13",
+      "contenido": "Mi objetivo es seguir desarrollando mis conocimientos sobre sistemas, redes, programación y ciberseguridad. Quiero adquirir experiencia y prepararme para trabajar en el sector tecnológico."
+    },
+    {
+      "titulo": "Aprender informática paso a paso",
+      "fecha": "2026-11-13",
+      "contenido": "Aprender informática requiere paciencia, práctica y constancia. Cada ejercicio, error y proyecto representa una oportunidad para adquirir nuevos conocimientos y mejorar mis habilidades."
+    }
+  ]

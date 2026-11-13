@@ -1,0 +1,12 @@
+{
+    "datos_personales":{
+        "nombre":"César Enrique",
+        "apellidos":"Mico Mbasogo",
+        "email":"cesarmbasogo@gmail.com"
+    },
+    "redes_sociales":{
+  	"facebook":"https://facebook.com/cesarmbasogo",
+    "linkedin":"https://linkedin.com/in/cesarmbasogo"
+  }
+
+}
