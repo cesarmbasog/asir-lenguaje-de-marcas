@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendario Histórico 1450-2026</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 25px;
+    font-family: Arial, sans-serif;
+    background: #080d18;
+    color: #f1f5f9;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #60a5fa;
+}
+
+header p {
+    color: #94a3b8;
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+input, button {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    font-size: 14px;
+}
+
+input {
+    background: #172033;
+    color: white;
+    width: 180px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3b82f6;
+}
+
+#calendario {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.año {
+    background: #111a2b;
+    border: 1px solid #29364d;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.año h2 {
+    color: #60a5fa;
+    text-align: center;
+    margin-top: 0;
+}
+
+.meses {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.mes {
+    background: #172033;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+}
+
+.mes h3 {
+    text-align: center;
+    color: #93c5fd;
+    font-size: 14px;
+}
+
+.dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+}
+
+.dia {
+    text-align: center;
+    padding: 5px 0;
+    font-size: 11px;
+    background: #0f172a;
+    border-radius: 3px;
+}
+
+.semana {
+    text-align: center;
+    color: #60a5fa;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px 0;
+}
+
+.vacio {
+    background: transparent;
+}
+
+.hoy {
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+
+.mes-actual {
+    border: 1px solid #60a5fa;
+}
+
+#estado {
+    text-align: center;
+    color: #94a3b8;
+    margin: 20px;
+}
+
+@media(max-width: 1000px) {
+    .meses {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .meses {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 400px) {
+    .meses {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Calendario Histórico</h1>
+    <p>Todos los días desde 1450 hasta 2026</p>
+
+    <div class="controles">
+        <input type="number" id="buscarAño"
+               placeholder="Buscar año (1450-2026)"
+               min="1450" max="2026">
+
+        <button onclick="buscar()">Buscar año</button>
+        <button onclick="mostrarTodos()">Mostrar todos</button>
+    </div>
+</header>
+
+<div id="estado"></div>
+
+<main id="calendario"></main>
+
+<script>
+
+let calendario = document.querySelector("#calendario");
+let estado = document.querySelector("#estado");
+
+let añoInicial = 1450;
+let añoFinal = 2026;
+
+let meses = [
+    "Enero", "Febrero", "Marzo",
+    "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre",
+    "Octubre", "Noviembre", "Diciembre"
+];
+
+let semana = ["L", "M", "X", "J", "V", "S", "D"];
+
+let fechaActual = new Date();
+
+function crearAño(año) {
+
+    let contenido = `
+        <section class="año" id="año-${año}">
+        <h2>${año}</h2>
+        <div class="meses">
+    `;
+
+    for (let mes = 0; mes < 12; mes++) {
+
+        contenido += `
+            <div class="mes">
+            <h3>${meses[mes]}</h3>
+            <div class="dias">
+        `;
+
+        // Días de la semana
+        for (let dia of semana) {
+            contenido += `<div class="semana">${dia}</div>`;
+        }
+
+        // Primer día del mes
+        let primerDia = new Date(año, mes, 1).getDay();
+
+        // La semana comienza en lunes
+        primerDia = (primerDia + 6) % 7;
+
+        // Número de días del mes
+        let diasMes = new Date(año, mes + 1, 0).getDate();
+
+        // Espacios vacíos
+        for (let i = 0; i < primerDia; i++) {
+            contenido += `<div class="dia vacio"></div>`;
+        }
+
+        // Crear todos los días
+        for (let dia = 1; dia <= diasMes; dia++) {
+
+            let clase = "dia";
+
+            if (
+                dia === fechaActual.getDate() &&
+                mes === fechaActual.getMonth() &&
+                año === fechaActual.getFullYear()
+            ) {
+                clase += " hoy";
+            }
+
+            contenido += `<div class="${clase}">${dia}</div>`;
+        }
+
+        contenido += `
+            </div>
+            </div>
+        `;
+    }
+
+    contenido += `
+        </div>
+        </section>
+    `;
+
+    return contenido;
+}
+
+// Generar calendario
+function generarCalendario(inicio, fin) {
+
+    calendario.innerHTML = "";
+
+    estado.textContent = "Generando calendario...";
+
+    let contenido = "";
+
+    for (let año = inicio; año <= fin; año++) {
+        contenido += crearAño(año);
+    }
+
+    calendario.innerHTML = contenido;
+
+    estado.textContent =
+        "Mostrando años desde " + inicio + " hasta " + fin;
+}
+
+// Buscar un año
+function buscar() {
+
+    let año = Number(document.getElementById("buscarAño").value);
+
+    if (año < añoInicial || año > añoFinal || !Number.isInteger(año)) {
+        alert("Introduce un año entre 1450 y 2026.");
+        return;
+    }
+
+    generarCalendario(año, año);
+}
+
+// Mostrar todos los años
+function mostrarTodos() {
+    generarCalendario(añoInicial, añoFinal);
+}
+
+// Cargar calendario
+mostrarTodos();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Calendario</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: white;
+            margin: 0;
+            padding: 40px 15px;
+        }
+
+        main {
+            max-width: 650px;
+            margin: auto;
+            background: #172033;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+        }
+
+        h1 {
+            text-align: center;
+            color: #60a5fa;
+        }
+
+        #mes {
+            text-align: center;
+            font-size: 23px;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #e2e8f0;
+        }
+
+        #calendario {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 7px;
+        }
+
+        .semana {
+            text-align: center;
+            padding: 12px 2px;
+            color: #60a5fa;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .dia {
+            min-height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .dia:hover {
+            background: #2563eb;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+
+        .hoy {
+            background: #2563eb;
+            border: 2px solid #93c5fd;
+            font-weight: bold;
+        }
+
+        .vacio {
+            background: transparent;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            margin-top: 25px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <h1>Mi calendario</h1>
+
+        <div id="mes"></div>
+
+        <div id="calendario"></div>
+
+        <footer>Organiza tus días y consulta el calendario.</footer>
+    </main>
+
+    <script>
+        let calendario = document.querySelector("#calendario");
+        let mes = document.querySelector("#mes");
+
+        let fecha = new Date();
+
+        let año = fecha.getFullYear();
+        let numeroMes = fecha.getMonth();
+
+        let nombreMes = fecha.toLocaleDateString("es-ES", {
+            month: "long",
+            year: "numeric"
+        });
+
+        mes.textContent = nombreMes.toUpperCase();
+
+        // Días de la semana
+        let diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+
+        diasSemana.forEach(function(dia) {
+            calendario.innerHTML +=
+                '<div class="semana">' + dia + '</div>';
+        });
+
+        // Calculamos el primer día del mes
+        let primerDia = new Date(año, numeroMes, 1).getDay();
+
+        // Ajustamos para que la semana empiece en lunes
+        primerDia = (primerDia + 6) % 7;
+
+        // Calculamos los días del mes
+        let diasMes = new Date(año, numeroMes + 1, 0).getDate();
+
+        // Espacios vacíos antes del primer día
+        for (let i = 0; i < primerDia; i++) {
+            calendario.innerHTML +=
+                '<div class="dia vacio"></div>';
+        }
+
+        // Pintamos los días del mes
+        for (let dia = 1; dia <= diasMes; dia++) {
+
+            let clase = "dia";
+
+            // Resaltamos el día actual
+            if (
+                dia === fecha.getDate() &&
+                numeroMes === fecha.getMonth() &&
+                año === fecha.getFullYear()
+            ) {
+                clase += " hoy";
+            }
+
+            calendario.innerHTML +=
+                '<div class="' + clase + '">' + dia + '</div>';
+        }
+    </script>
+
+</body>
+</html>

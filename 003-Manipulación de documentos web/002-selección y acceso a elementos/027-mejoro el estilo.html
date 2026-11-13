@@ -1,0 +1,156 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clasificador de edad</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #080d18;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    main {
+      width: 90%;
+      max-width: 420px;
+      padding: 35px;
+      text-align: center;
+      background: #172033;
+      border: 1px solid #293750;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px #0008;
+    }
+
+    h1 {
+      color: #60a5fa;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #aab8cc;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 15px;
+      border: 1px solid #34445e;
+      border-radius: 9px;
+      background: #0b1120;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #3b82f6;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 9px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    #resultado {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #0b1120;
+      border: 1px solid #34445e;
+      animation: aparecer 0.4s ease;
+    }
+
+    #resultado h2 {
+      margin: 0 0 8px;
+      color: #60a5fa;
+      font-size: 22px;
+    }
+
+    #resultado span {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <h1>Clasificador de edad</h1>
+    <p>Introduce tu edad para conocer tu etapa de vida.</p>
+
+    <input type="number" placeholder="Escribe tu edad">
+
+    <button>Calcula</button>
+
+    <section id="resultado">
+      <h2 id="mensaje"></h2>
+      <span id="detalle">Clasificación completada</span>
+    </section>
+  </main>
+
+  <script>
+    let entrada = document.querySelector("input")
+    let boton = document.querySelector("button")
+    let resultado = document.querySelector("#resultado")
+    let mensaje = document.querySelector("#mensaje")
+
+    boton.onclick = function(){
+      let edad = entrada.value
+
+      if(edad < 10){
+        mensaje.textContent = "Eres un niño"
+      }else if(edad >= 10 && edad < 20){
+        mensaje.textContent = "Eres un adolescente"
+      }else if(edad >= 20 && edad < 30){
+        mensaje.textContent = "Eres un joven"
+      }else if(edad >= 30 && edad < 40){
+        mensaje.textContent = "Eres un adulto"
+      }else{
+        mensaje.textContent = "Ya no eres joven"
+      }
+
+      resultado.style.display = "block"
+    }
+  </script>
+
+</body>
+</html>
